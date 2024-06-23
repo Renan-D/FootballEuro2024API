@@ -12,14 +12,13 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.ErrorResponseException;
 
 import java.util.List;
 
 @Service
 @AllArgsConstructor
 public class TeamService {
-    private TeamRepository teamRepository;
+    private final TeamRepository teamRepository;
     private ObjectMapper objectMapper;
 
     public void createTeam(Team team) {
