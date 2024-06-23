@@ -1,5 +1,6 @@
 package com.tuto.tutorial.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,9 +19,10 @@ public class TournamentGroup {
     @GeneratedValue
     private Integer id;
     private String name;
-
     @OneToMany(mappedBy = "tournamentGroup", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Team> teams;
     @OneToMany(mappedBy = "tournamentGroup", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Game> games;
 }

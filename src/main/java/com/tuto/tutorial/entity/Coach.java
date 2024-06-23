@@ -1,5 +1,6 @@
 package com.tuto.tutorial.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,5 +27,6 @@ public class Coach {
     private LocalDate birthDate;
 
     @OneToOne
+    @JsonBackReference
     private Team team;
 }

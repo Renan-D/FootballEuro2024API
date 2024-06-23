@@ -1,5 +1,6 @@
 package com.tuto.tutorial.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.tuto.tutorial.entity.Enum.Position;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,8 +29,10 @@ public class Player {
     private Position position;
 
     @ManyToOne
+    @JsonBackReference
     private Team team;
 
     @OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Event> events;
 }
